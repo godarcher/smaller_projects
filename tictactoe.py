@@ -20,11 +20,13 @@ def space_Is_Free(position):
 def print_playboard(play_board):
     # ? This function prints the current playing board
     # * it takes as input the actual play_board which is a global variable
-    print(" " + play_board[1] + "| " + play_board[2] + "| " + play_board[3])
-    print("---------")
-    print(" " + play_board[4] + "| " + play_board[5] + "| " + play_board[6])
-    print("---------")
-    print(" " + play_board[7] + "| " + play_board[8] + "| " + play_board[9])
+    print("")
+    print(" " + play_board[1] + " | " + play_board[2] + " | " + play_board[3])
+    print("---|---|---")
+    print(" " + play_board[4] + " | " + play_board[5] + " | " + play_board[6])
+    print("---|---|---")
+    print(" " + play_board[7] + " | " + play_board[8] + " | " + play_board[9])
+    print("")
 
 
 def isWinner(bo, le):
