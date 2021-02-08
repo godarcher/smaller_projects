@@ -105,28 +105,33 @@ def isplay_boardFull(play_board):
 
 
 def main():
-    print("welcome tic tac toe")
+    print("")
+    print("Welcome to tic tac toe!")
     print_playboard(play_board)
     while not(isplay_boardFull(play_board)):
         if not(is_Winner(play_board, "o")):
             playMove()
             print_playboard(play_board)
         else:
-            print("Sorry, O's won this time! ")
+            print("")
+            print("You have lost this game. ")
             break
         if not(is_Winner(play_board, "x")):
             move = compMove()
             if move == 0:
-                print("Tie game")
+                print("")
+                print("It is a tie game, good job!")
             else:
                 insert_piece("o", move)
                 print("Computer placed an 'o' in position", move, ":")
                 print_playboard(play_board)
         else:
-            print("X's won this time! Good job")
+            print("")
+            print("You have won, good job!")
             break
     if isplay_boardFull(play_board):
-        print("Tie game")
+        print("")
+        print("It is a tie game, good job!")
 
 
 main()
