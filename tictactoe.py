@@ -29,17 +29,19 @@ def print_playboard(play_board):
     print("")
 
 
-def is_Winner(bo, le):
+def is_Winner(board, piece):
     # ? This function checks if any of the two players have won
     # * It does this by hardcoded win definitons, with input board and possible inputs
-    return ((bo[7] == le and bo[8] == le and bo[9] == le) or
-            (bo[4] == le and bo[5] == le and bo[6] == le) or
-            (bo[1] == le and bo[2] == le and bo[3] == le) or
-            (bo[1] == le and bo[4] == le and bo[7] == le) or
-            (bo[2] == le and bo[5] == le and bo[8] == le) or
-            (bo[3] == le and bo[6] == le and bo[9] == le) or
-            (bo[1] == le and bo[5] == le and bo[9] == le) or
-            (bo[3] == le and bo[5] == le and bo[7] == le))
+    return (
+        (board[7] == piece and board[8] == piece and board[9] == piece) or
+        (board[4] == piece and board[5] == piece and board[6] == piece) or
+        (board[1] == piece and board[2] == piece and board[3] == piece) or
+        (board[1] == piece and board[4] == piece and board[7] == piece) or
+        (board[2] == piece and board[5] == piece and board[8] == piece) or
+        (board[3] == piece and board[6] == piece and board[9] == piece) or
+        (board[1] == piece and board[5] == piece and board[9] == piece) or
+        (board[3] == piece and board[5] == piece and board[7] == piece)
+    )
 
 
 def playMove():
