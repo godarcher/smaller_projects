@@ -2,7 +2,7 @@
 #! This code enables persons to play tic tac toe inside the console
 
 # This is the playboard for this game (global), it is empty at declaration
-play_board = [' ' for x in range(10)]
+play_board = [' ' for x in range(10)]1
 
 
 def insert_piece(piece, pos):
