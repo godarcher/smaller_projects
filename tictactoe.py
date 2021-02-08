@@ -29,7 +29,9 @@ def print_playboard(play_board):
     print("")
 
 
-def isWinner(bo, le):
+def is_Winner(bo, le):
+    # ? This function checks if any of the two players have won
+    # * It does this by hardcoded win definitons, with input board and possible inputs
     return ((bo[7] == le and bo[8] == le and bo[9] == le) or
             (bo[4] == le and bo[5] == le and bo[6] == le) or
             (bo[1] == le and bo[2] == le and bo[3] == le) or
@@ -66,7 +68,7 @@ def compMove():
         for i in possibleMoves:
             play_boardCopy = play_board[:]
             play_boardCopy[i] = let
-            if isWinner(play_boardCopy, let):
+            if is_Winner(play_boardCopy, let):
                 move = i
                 return move
     cornersOpen = []
@@ -106,13 +108,13 @@ def main():
     print("welcome tic tac toe")
     print_playboard(play_board)
     while not(isplay_boardFull(play_board)):
-        if not(isWinner(play_board, "o")):
+        if not(is_Winner(play_board, "o")):
             playMove()
             print_playboard(play_board)
         else:
             print("Sorry, O's won this time! ")
             break
-        if not(isWinner(play_board, "x")):
+        if not(is_Winner(play_board, "x")):
             move = compMove()
             if move == 0:
                 print("Tie game")
