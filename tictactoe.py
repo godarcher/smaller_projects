@@ -1,4 +1,7 @@
 
+#! This code enables persons to play tic tac toe inside the console
+
+# This is the playboard for this game (global), it is empty at declaration
 play_board = [' ' for x in range(10)]
 
 
@@ -8,11 +11,15 @@ def insert_piece(piece, pos):
     play_board[pos] = piece
 
 
-def spaceIsFree(pos):
-    return play_board[pos] == " "
+def space_Is_Free(position):
+    # ? This function checks if a space on the playing board is currenlty free
+    # * It takes as input a position and uses the global play_board
+    return play_board[position] == " "
 
 
-def printplay_board(play_board):
+def print_playboard(play_board):
+    # ? This function prints the current playing board
+    # * it takes as input the actual play_board which is a global variable
     print(" " + play_board[1] + "| " + play_board[2] + "| " + play_board[3])
     print("---------")
     print(" " + play_board[4] + "| " + play_board[5] + "| " + play_board[6])
@@ -38,9 +45,9 @@ def playMove():
         try:
             move = int(move)
             if move > 0 and move < 10:
-                if spaceIsFree(move):
+                if space_Is_Free(move):
                     run = False
-                    insertLetter("x", move)
+                    insert_piece("x", move)
                 else:
                     print("Sorry this space is occupied")
             else:
@@ -95,11 +102,11 @@ def isplay_boardFull(play_board):
 
 def main():
     print("welcome tic tac toe")
-    printplay_board(play_board)
+    print_playboard(play_board)
     while not(isplay_boardFull(play_board)):
         if not(isWinner(play_board, "o")):
             playMove()
-            printplay_board(play_board)
+            print_playboard(play_board)
         else:
             print("Sorry, O's won this time! ")
             break
@@ -108,9 +115,9 @@ def main():
             if move == 0:
                 print("Tie game")
             else:
-                insertLetter("o", move)
+                insert_piece("o", move)
                 print("Computer placed an 'o' in position", move, ":")
-                printplay_board(play_board)
+                print_playboard(play_board)
         else:
             print("X's won this time! Good job")
             break
