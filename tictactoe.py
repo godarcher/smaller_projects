@@ -44,16 +44,29 @@ def is_Winner(board, piece):
     )
 
 
-def playMove():
-    run = True
-    while run:
-        move = input("Please select a position to place an 'X' (1-9): ")
+def play_Move():
+    # ? This function plays a move
+    # * It uses the global play_board for this
+
+    # We declare not_done bool as an later exit condition
+    not_done = True
+
+    # Continue as long as exit condition is not fulfilled
+    while not_done:
+
+        # Take user input
+        move_to_make = input(
+            "Please select a position to place an 'X' (1-9): ")
+
         try:
-            move = int(move)
-            if move > 0 and move < 10:
-                if space_Is_Free(move):
+            # We convert the input to an integer
+            move_to_make = int(move_to_make)
+
+            # We check if the integer is inside the playing field
+            if move_to_make > 0 and move_to_make < 10:
+                if space_Is_Free(move_to_make):
                     run = False
-                    insert_piece("x", move)
+                    insert_piece("x", move_to_make)
                 else:
                     print("Sorry this space is occupied")
             else:
@@ -112,7 +125,7 @@ def main():
     print_playboard(play_board)
     while not(isplay_boardFull(play_board)):
         if not(is_Winner(play_board, "o")):
-            playMove()
+            play_Move()
             print_playboard(play_board)
         else:
             print("")
